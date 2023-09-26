@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <h1>Black Jack</h1>
+        <link rel="stylesheet" href="css/blackjack.css">
+        <script src="javascript/blackjack.js"></script>
+    </head>
+    <style>
+        body{
+            background-image: url('images/cards.jpg'); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+        }
+    </style>
+
+    <body>
+        <nav class="navbar">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="crash.html">Crash</a></li>
+              <li><a href="slots.html">Slots</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+              
+  </nav>
+        <div class="container">
+            <div id='cash'>Cash: $1000</div>
+            <div id='bet'>Bet: $100</div>
+          
+            <div class='changeBet clearfix'>
+              <div id='subBet' class='lil button'>-</div>
+              <div id='placeBet' class='big button'>Place Bet</div>
+              <div id='addBet' class='lil button last'>+</div>
+            </div>
+          
+            <div class='hide buttons clearfix'>
+              <div id='playHit' class='button'>Hit</div>
+              <div id='playStay' class='button last'>Stay</div>
+            </div>
+          
+            <div class='fullbar clearfix'>
+              <div id='reset' class='hide button'>Next Round</div>
+              <div id='startover' class='hide button'>Start Over</div>
+            </div>
+          
+            <div class='title clearfix'>
+              <div class='player'>Player:</div>
+              <div class='computer'>Computer:</div>
+            </div>
+          
+            <div id='gameBoard' class='clearfix'>
+              <div class='player-section card-section'></div><div class='computer-section card-section'></div>
+            </div>
+          </div>
+    </body>
+</html>
