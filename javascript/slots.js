@@ -1,15 +1,15 @@
-import { setUserBet, checkUserBet, isUserLoggedIn}  from "../globalFuncitons/global.js";
+import { setUserBet, checkUserBet, isUserLoggedIn}  from "./global.js";
 
 function randomNumberGenerator(){
     return Math.floor(Math.random() * 6 + 1);
 }
 
-let slot1 = document.getElementById("num1");
-let slot2 = document.getElementById("num2");
-let slot3 = document.getElementById("num3");
+let slot1 = document.getElementById("boxes1");
+let slot2 = document.getElementById("boxes2");
+let slot3 = document.getElementById("boxes3");
 let bet = document.getElementById("bet");
 
-let spinWheel = document.getElementById("spin");
+let spinWheel = document.getElementById("spinner");
 spinWheel.addEventListener("click", () => {
     bet = document.getElementById("bet").value;
     let currentBet = document.getElementById("bet").value;
