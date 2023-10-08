@@ -321,15 +321,43 @@ footer {
 
 .login-area {
     position: absolute;
-    top: 50%;
+    top: 55%;
     right: 20px;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
 }
 
+#login{
+    text-align: center;
+    color: white;
+    align-items: center;
+    display: flex;
+}
 
+#uName{
+    position: relative;
+    display: inline-block;
 
+}
+
+#pWord{
+    position: relative;
+    display: inline-block;
+    
+}
+
+#loginButton{
+
+    text-align: center;
+
+    margin-right: 5px;
+}
+
+#registerButton{
+    position: relative;
+
+}
 
 
 @media (max-width: 768px) {

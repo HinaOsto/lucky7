@@ -66,7 +66,6 @@ loginButton.addEventListener("click", (event)=>{
         let curUser = JSON.stringify(currentLoggedInUser);
         localStorage.setItem("currentUserInfo", curUser);
 
-        window.location.href =  './login/blank.html'
     } else {
         console.log("error");
     }
