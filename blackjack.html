@@ -4,8 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <h1>Black Jack</h1>
-        <link rel="stylesheet" href="css/blackjack.css">
-        <script src="javascript/blackjack.js"></script>
+        <link rel="stylesheet" href="css/blackjack.css">        
     </head>
     <style>
         body{
@@ -31,9 +30,10 @@
             <div id='bet'>Bet: $100</div>
           
             <div class='changeBet clearfix'>
-              <div id='subBet' class='lil button'>-</div>
+              <label for="betAmmount">Bet Ammount:</label>
+              <input type="number" id = "betAmmount" value = "1">
               <div id='placeBet' class='big button'>Place Bet</div>
-              <div id='addBet' class='lil button last'>+</div>
+              
             </div>
           
             <div class='hide buttons clearfix'>
@@ -47,13 +47,15 @@
             </div>
           
             <div class='title clearfix'>
-              <div class='player'>Player:</div>
-              <div class='computer'>Computer:</div>
+              <div class='player' id = "player">Player:</div>
+              <div class='computer' id = "computer">Computer:</div>
             </div>
           
             <div id='gameBoard' class='clearfix'>
               <div class='player-section card-section'></div><div class='computer-section card-section'></div>
             </div>
           </div>
+          <script type = "module" src="javascript/global.js"></script>
     </body>
+    <script type = "module" src="javascript/blackjack.js"></script>
 </html>

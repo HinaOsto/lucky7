@@ -1,14 +1,14 @@
 import { setUserBet, checkUserBet, isUserLoggedIn}  from "./global.js";
 
 let currentBet = document.getElementById("bet")// Put html thing here
-let uInfo = document.getElementById("userInfo");
-let dinfo = document.getElementById("dealerInfo");
-let current = document.getElementById("balance");
+let uInfo = document.getElementById("player");
+let dinfo = document.getElementById("computer");
+let current = document.getElementById("cash");
 
-let getCards = document.getElementById("getCards");
+let getCards = document.getElementById("placeBet");
 getCards.addEventListener("click", () =>{
     if(isUserLoggedIn()){
-        if(currentBet = document.getElementById("bet").value <= 0){
+        if(currentBet = document.getElementById("betAmmount").value <= 0){
             alert("Please bet more than 0 coins");
         } else {
             getPlayerCards();
@@ -19,12 +19,12 @@ getCards.addEventListener("click", () =>{
     }
 })
 
-let hitCards = document.getElementById("hit");
+let hitCards = document.getElementById("playHit");
 hitCards.addEventListener("click", () =>{
     hitPlayerCards();
 })
 
-let playerStandButton = document.getElementById("stand");
+let playerStandButton = document.getElementById("playStay");
 playerStandButton.addEventListener("click", () =>{
     playerStand();
 })
@@ -58,7 +58,7 @@ let userCards = [];
 function getPlayerCards(){
     let currentBalanceParse = JSON.parse(localStorage.getItem("currentUserInfo"));
     current.innerHTML = currentBalanceParse[1] + " <- Current Balance";
-    currentBet = document.getElementById("bet").value;
+    currentBet = document.getElementById("betAmmount").value;
     if(checkUserBet(currentBet)){
         userCards = [];
         let sum = 0;
