@@ -2,7 +2,7 @@
 #include "easyClient.h"
 #include <Windows.h>
 
-const std::string token{ "MTE2MTcwNDc3Mjk0OTI0NjA0Mw.GahTT5.pQzB-SD_xixJ5-TDFZVGtzUFyYtvLCIgOjQKL8" };
+const std::string token{ "" };
 
 /*
 	Get Websocket msg
