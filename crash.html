@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1>Crash</h1>
+    <link rel="stylesheet" href="css/crash.css">
+    <script src="javascript/crash.js"></script>
+</head>
+<style>
+    body{
+        background-image: url('images/crash1.jpg'); 
+        background-size: 2000px 1900px;
+        background-repeat: no-repeat; 
+        background-attachment: fixed; 
+    }
+</style>
+<body>
+    <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blackjack.html">Blackjack</a></li>
+          <li><a href="slots.html">Slots</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+          
+</nav>
+
+<body>
+
+    <div id="gameContainer">
+        <canvas id="game" width="400" height="350"></canvas>
+        <p id="currentMultiplier">0.0x</p>
+    </div>
+
+    <div id="infoContainer">
+        <div style="display: flex;">
+            <p id="balance">?</p>
+            <p id="crashedAt">Multiplier at crash:</p>
+        </div>
+
+        <div id="betContainer">
+        </div>
+    </div>
+
+    <div id="buttonContainer">
+        <button id="submitBet">Start Game</button>
+        <button id="takeProfits">Take Profits</button>
+        <label for="betAmount">Bet Amount:</label>
+        <input type="number" id="betAmount" value="1">
+    </div>
+
+    <div id="lastCrashesContainer">
+        <p>Last Crashes:</p>
+        <div id="lastCrashes"></div>
+    </div>
+</body>
+
+</html>
