@@ -33,7 +33,7 @@
     };
 
     async function connectToServer() {
-        const ws = new WebSocket('wss://ec2-3-20-239-151.us-east-2.compute.amazonaws.com:8080');
+        const ws = new WebSocket('ws://3.20.239.151:8080');
         return new Promise((resolve, reject) => {
             const timer = setInterval(() => {
                 if(ws.readyState === 1) {
