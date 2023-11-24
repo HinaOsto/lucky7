@@ -33,7 +33,7 @@
     };
 
     async function connectToServer() {
-        const ws = new WebSocket('wss://52.15.201.207:8080');
+        const ws = new WebSocket('wss://172.31.7.185:8080/');
         return new Promise((resolve, reject) => {
             const timer = setInterval(() => {
                 if(ws.readyState === 1) {
