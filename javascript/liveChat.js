@@ -33,7 +33,7 @@
     };
 
     async function connectToServer() {
-        const ws = new WebSocket('wss://172.31.7.185:8080/');
+        const ws = new WebSocket('wss://elegant-kindly-soy.glitch.me');
         return new Promise((resolve, reject) => {
             const timer = setInterval(() => {
                 if(ws.readyState === 1) {
