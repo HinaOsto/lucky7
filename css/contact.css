@@ -76,3 +76,29 @@
     height: 400px; 
     overflow-y: auto; 
 }
+
+#chat{
+  display: flex;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+#chat2{
+  background-color: #04AA6D;
+  max-width: 25vw;
+  display: relative;
+}
+
+#submit{
+  display: block;
+  position: absolute;
+  float: left;
+  border: 1px solid white;
+  max-width: 20vw;
+}
+
+#newChat2{
+  position: relative;
+  display: block;
+}
