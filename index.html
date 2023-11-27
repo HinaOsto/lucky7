@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucky7</title>
-   
     <link rel="stylesheet" href="css/style.css">
     <style>
         body{
@@ -25,11 +24,12 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
-                    <div class="login-area">
-                        <input type="text" class="login-input" placeholder="Username">
-                        <input type="password" class="login-input" placeholder="Password">
-                        <button class="login-button">Login</button>
-                    </div>
+                    <form class="login-area" id = "login">
+                        <button id = "registerButton">Register</button>
+                        <input type="text" class="login-input" placeholder="Username" id = "Username">
+                        <input type="password" class="login-input" placeholder="Password" id = "Password">
+                        <button id = "loginButton" class="login-button">Login</button>
+                    </form>
 
             </nav>
             <div class="header">
@@ -66,11 +66,10 @@
     <footer>
         <p>&copy; 2023 LUCKY7. All rights reserved.</p>
     </footer>
-</body>
 
         
     </main>
    
-    <script src="script.js"></script>
 </body>
+<script src ="javascript/login.js"></script>
 </html>
