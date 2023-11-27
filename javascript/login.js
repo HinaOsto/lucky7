@@ -27,11 +27,11 @@ export function makeSureLocalStorageExsists(){
 }
 
 loginButton.addEventListener("click", (event)=>{
+    console.log("r");
     event.preventDefault();
     makeSureLocalStorageExsists();
-    let username = loginForm.uNameE.value;
-    let password = loginForm.pWordE.value;
-
+    let username = loginForm.Username.value;
+    let password = loginForm.Password.value;
     let index1;
     let index2 = Math.floor(Math.random() * 100000 + 1);    
 
@@ -66,7 +66,7 @@ loginButton.addEventListener("click", (event)=>{
         let curUser = JSON.stringify(currentLoggedInUser);
         localStorage.setItem("currentUserInfo", curUser);
 
-        window.location.href =  './login/blank.html'
+        window.location.href =  'index.html'
     } else {
         console.log("error");
     }
@@ -76,9 +76,10 @@ loginButton.addEventListener("click", (event)=>{
 
 /* This is fine */
 registerButton.addEventListener("click", (event)=>{
+    console.log("r");
     event.preventDefault();
-    let username = loginForm.uNameE.value;
-    let password = loginForm.pWordE.value;
+    let username = loginForm.Username.value;
+    let password = loginForm.Password.value;
 
     const newUserBalance = 1000;
     /* Make sure that the local storage is initilized! */
