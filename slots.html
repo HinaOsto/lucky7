@@ -15,7 +15,7 @@
       }
   </style>
     <!-- Reference your JavaScript file -->
-    <script src="javascript/slots.js"></script>
+    <script src="javascript/slots.js" type="module"></script>
 </head>
 <body>
   
@@ -31,21 +31,23 @@
     <div id="app">
         <div class="doors">
             <div class="door">
-                <div class="boxes"></div>
+                <div class="boxes" id ="boxes1"></div>
             </div>
 
             <div class="door">
-                <div class="boxes"></div>
+                <div class="boxes" id="boxes2"></div>
             </div>
 
             <div class="door">
-                <div class="boxes"></div>
+                <div class="boxes" id="boxes3"></div>
             </div>
         </div>
 
         <div class="buttons">
             <button id="spinner">Spin</button>
             <button id="reseter">Reset</button>
+            <input id ="bet" type="number" value = "bet">
+            <label for="bet">Bet</label><br>
         </div>
 
         <p class="info"></p>
