@@ -1,17 +1,17 @@
-import { setUserBet, checkUserBet, isUserLoggedIn}  from "../globalFuncitons/global.js";
+import { setUserBet, checkUserBet, isUserLoggedIn }  from "./global.js";
 
 let startingCrash = 1.0;
-let crashThing = document.getElementById("crash");
-let submitBet = document.getElementById("submit");
-let cashOut = document.getElementById("cashOut");
+let crashThing = document.getElementById("currentMultiplier");
+let submitBet = document.getElementById("submitBet");
+let cashOut = document.getElementById("takeProfits");
 let currentBet;
 
 submitBet.addEventListener("click", () =>{
     if(isUserLoggedIn()){
-        if(currentBet = document.getElementById("bet").value <= 0){
+        if(currentBet = document.getElementById("betAmount").value <= 0){
             alert("Please bet more than 0 coins");
         } else {
-            if(checkUserBet(currentBet = document.getElementById("bet").value)){  
+            if(checkUserBet(currentBet = document.getElementById("betAmount").value)){  
             doCrash();
             } else {
                 alert("You are betting more than you have in your balance!");
@@ -26,7 +26,7 @@ submitBet.addEventListener("click", () =>{
 cashOut.addEventListener("click", ()=>{
     let crashValue = crashThing.textContent;
     console.log(crashValue);
-    currentBet = document.getElementById("bet").value;
+    currentBet = document.getElementById("betAmount").value;
     clearInterval(firstInterval);
     let bet = crashValue * currentBet;
     console.log(bet + "<- bet");
@@ -73,7 +73,7 @@ function doCrash(){
         if(Math.abs(iNum - cNum) < 1e-9){
             console.log("h");
             clearInterval(firstInterval);
-            currentBet = document.getElementById("bet").value;
+            currentBet = document.getElementById("betAmount").value;
             playerLoss(currentBet);
         }
     }, 40);

@@ -3,7 +3,7 @@ let loginForm = document.getElementById("login");
 let loginButton = document.getElementById("loginButton");
 let registerButton = document.getElementById("registerButton");
 
-export function makeSureLocalStorageExsists(){
+function makeSureLocalStorageExsists(){
     let storedArrayParse = JSON.parse(localStorage.getItem("storedUsernames"));
     let storedPasswordParse = JSON.parse(localStorage.getItem("storedPasswords"));
     let currentBalanceParse = JSON.parse(localStorage.getItem("currentBalances"));
@@ -78,12 +78,13 @@ loginButton.addEventListener("click", (event)=>{
 registerButton.addEventListener("click", (event)=>{
     console.log("r");
     event.preventDefault();
+    makeSureLocalStorageExsists();
     let username = loginForm.Username.value;
     let password = loginForm.Password.value;
 
     const newUserBalance = 1000;
     /* Make sure that the local storage is initilized! */
-    makeSureLocalStorageExsists();
+    
 
     let storedArrayParse = JSON.parse(localStorage.getItem("storedUsernames"));
     let storedPasswordParse = JSON.parse(localStorage.getItem("storedPasswords"));

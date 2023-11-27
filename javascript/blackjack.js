@@ -1,11 +1,11 @@
 import { setUserBet, checkUserBet, isUserLoggedIn}  from "./global.js";
 
-let currentBet = document.getElementById("bet")// Put html thing here
-let uInfo = document.getElementById("userInfo");
-let dinfo = document.getElementById("dealerInfo");
-let current = document.getElementById("balance");
+let currentBet = document.getElementById("bet");// Put html thing here
+let uInfo = document.getElementById("player");
+let dinfo = document.getElementById("computer");
+let current = document.getElementById("cash");
 
-let getCards = document.getElementById("getCards");
+let getCards = document.getElementById("placeBet");
 getCards.addEventListener("click", () =>{
     if(isUserLoggedIn()){
         if(currentBet = document.getElementById("bet").value <= 0){
@@ -13,18 +13,19 @@ getCards.addEventListener("click", () =>{
         } else {
             getPlayerCards();
             getCards.style.display = 'none';
+            
         }
     } else {
         alert("Please log in before playing games");
     }
 })
 
-let hitCards = document.getElementById("hit");
+let hitCards = document.getElementById("playHit");
 hitCards.addEventListener("click", () =>{
     hitPlayerCards();
 })
 
-let playerStandButton = document.getElementById("stand");
+let playerStandButton = document.getElementById("playStay");
 playerStandButton.addEventListener("click", () =>{
     playerStand();
 })
@@ -34,6 +35,8 @@ function generateRandomNumbers(){
 }
 
 function playerWin(bet){
+    hitCards.style.visibility = 'hidden';
+    playerStandButton.style.visibility = 'hidden';
     bet *= 1.5;
     getCards.style.display = 'block';
     alert("You Won!");
@@ -41,12 +44,16 @@ function playerWin(bet){
 }
 
 function playerLoss(bet){
+    hitCards.style.visibility = 'hidden';
+    playerStandButton.style.visibility = 'hidden';
     getCards.style.display = 'block';
     alert("You lost!");
     setUserBet(bet, 0);
 }
 
 function playerDraw(bet){
+    hitCards.style.visibility = 'hidden';
+    playerStandButton.style.visibility = 'hidden';
     getCards.style.display = 'block';
     alert("draw!");
     setUserBet(bet, 1);
@@ -74,8 +81,9 @@ function getPlayerCards(){
                 sum += userCards[i];
             }
         }
-        playerStandButton.style.display = 'visible';
-        uInfo.innerHTML = sum;
+        hitCards.style.visibility = 'visible';
+        playerStandButton.style.visibility = 'visible';
+        uInfo.innerHTML = "You: " + sum;
         getDealerCards();
     } else {
         alert("Invalid Bet Ammount! You Are Betting More Than You Have! Your Current Balance Is:" + currentBalanceParse[1] + " You are trying to bet " + currentBet);
@@ -89,30 +97,33 @@ function hitPlayerCards(){
         sum += userCards[i];
     }
     if(sum > 21){
-        uInfo.innerHTML = "Bust";
-        playerStandButton.style.display = 'none';
-        hitCards.style.direction = 'none';
+        uInfo.innerHTML = "You: " + sum + "Bust";
+        hitCards.style.visibility = 'hidden';
+        playerStandButton.style.visibility = 'hidden';
         playerLoss(currentBet);
     } else {
-        uInfo.innerHTML = sum;
+        uInfo.innerHTML = "You: " + sum;
     }
 }
 
 function playerStand(){
     let dealerSum = dealerLogic();
     let playerSum = 0;
-    for(let i = 0; i < userCards; i++){
-        playerSum += userCards[i];
+    for(let i = 0; i < userCards.length; i++){
+        playerSum += userCards[i];    
     }
 
-    if(playerSum > dealerSum){
+    console.log(playerSum);
+    console.log(dealerSum + "d");
+
+    if(playerSum > 19){
         playerWin(currentBet);
     } else if (playerSum === dealerSum) {
         playerDraw(currentBet);
     } else {
         playerLoss(currentBet);
     }
-    hitCards.style.direction = 'none';
+    hitCards.style.visibility = 'hidden';
 }
 
 //Dealer Shit
@@ -142,7 +153,7 @@ function dealerLogic(){
     }
 
     if(sum < 17){
-        sum = 21;
+        sum = 19;
         dinfo.innerHTML = sum;
         return sum;
     } else {
