@@ -11,21 +11,24 @@
 
         let div = document.createElement("div");
         div.id = "newChat";
-        div.innerHTML = currentBalanceParse[0] + ": "+  messageBody.value;
+        //currentBalanceParse[0] + ": "+  
+        div.innerHTML = messageBody.value;
 
         getMessage.appendChild(div);
     })
 
     ws.onmessage = (webSocketMessage) =>{
-        let string = JSON.parse(webSocketMessage.data);
+        let string = webSocketMessage.data;
         let thisString = JSON.stringify(string);
         if(!thisString.includes(" ouiadw321")){
             const removePart = " bigfuckingballsinmymouth";
             let newString = thisString.replace(' bigfuckingballsinmymouth', '');
+            let newNewString = newString.replace(/['"]+/g, '');
+            let showString = newNewString.replace("\\\\", "");
 
             let div = document.createElement("div");
             div.id = "newChat";
-            div.innerHTML = "Support Says: " + newString.toString();
+            div.innerHTML = "Support Says: " + showString.toString();
 
             console.log("message recieved");
             getMessage.appendChild(div);
@@ -34,6 +37,8 @@
 
     async function connectToServer() {
         const ws = new WebSocket('wss://elegant-kindly-soy.glitch.me');
+    
+        ws.onclose = function(event){console.log(event);}
         return new Promise((resolve, reject) => {
             const timer = setInterval(() => {
                 if(ws.readyState === 1) {
