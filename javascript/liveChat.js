@@ -11,8 +11,7 @@
 
         let div = document.createElement("div");
         div.id = "newChat";
-        //currentBalanceParse[0] + ": "+  
-        div.innerHTML = messageBody.value;
+        div.innerHTML = currentBalanceParse[0] + ": "+  messageBody.value;
 
         getMessage.appendChild(div);
     })
