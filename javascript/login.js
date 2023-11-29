@@ -1,4 +1,4 @@
-
+import {isUserLoggedIn} from "./global.js";
 let loginForm = document.getElementById("login");
 let loginButton = document.getElementById("loginButton");
 let registerButton = document.getElementById("registerButton");
@@ -23,6 +23,18 @@ function makeSureLocalStorageExsists(){
         storedArrayParse = JSON.parse(localStorage.getItem("storedUsernames"));
         storedPasswordParse = JSON.parse(localStorage.getItem("storedPasswords"));
         currentBalanceParse = JSON.parse(localStorage.getItem("currentBalances"));
+    }
+}
+
+window.onload = (event) =>{
+    makeSureLocalStorageExsists();
+    if(isUserLoggedIn()){
+        let loginForm = document.getElementById("login");
+        let currentBalanceParse = JSON.parse(localStorage.getItem("currentBalances"));
+        loginForm.style.fontSize = '50';
+        loginForm.style.color = 'white';
+        loginForm.style.right = '100px';
+        loginForm.innerHTML = "Welcome: " + currentBalanceParse[0];
     }
 }
 
